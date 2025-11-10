@@ -86,6 +86,20 @@
       <artifactId>sikuli-api</artifactId>
       <version>1.2.0</version>
     </dependency>
+        <!-- Allure TestNG Integration -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <version>2.24.0</version>
+    </dependency>
+
+    <!-- Optional: Allure Java Commons (helps with attachments/logs) -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-java-commons</artifactId>
+        <version>2.24.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
