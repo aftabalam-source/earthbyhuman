@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -49,7 +48,7 @@
       <version>5.1.1</version>
     </dependency>
 
-    <!-- Apache POI (Excel) -->
+    <!-- Apache POI -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
@@ -87,35 +86,35 @@
       <version>1.2.0</version>
     </dependency>
 
-    <!-- Allure TestNG Integration -->
+    <!-- Allure TestNG -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-testng</artifactId>
-      <version>2.24.0</version>
+      <version>2.27.0</version>
     </dependency>
 
-    <!-- Optional: Allure Java Commons -->
+    <!-- Optional: Allure Commons -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-java-commons</artifactId>
-      <version>2.24.0</version>
+      <version>2.27.0</version>
     </dependency>
 
   </dependencies>
 
   <build>
     <plugins>
+
       <!-- Maven Surefire Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>3.2.5</version>
         <configuration>
           <includes>
             <include>**/*Test*.java</include>
           </includes>
           <systemPropertyVariables>
-            <!-- Tell Allure where to store results -->
             <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
           </systemPropertyVariables>
         </configuration>
@@ -126,7 +125,12 @@
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
         <version>2.11.2</version>
+        <configuration>
+          <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+          <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+        </configuration>
       </plugin>
+
     </plugins>
   </build>
 
