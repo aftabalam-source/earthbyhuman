@@ -86,32 +86,46 @@
       <artifactId>sikuli-api</artifactId>
       <version>1.2.0</version>
     </dependency>
-        <!-- Allure TestNG Integration -->
+
+    <!-- Allure TestNG Integration -->
     <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-testng</artifactId>
-        <version>2.24.0</version>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.24.0</version>
     </dependency>
 
-    <!-- Optional: Allure Java Commons (helps with attachments/logs) -->
+    <!-- Optional: Allure Java Commons -->
     <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-java-commons</artifactId>
-        <version>2.24.0</version>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-java-commons</artifactId>
+      <version>2.24.0</version>
     </dependency>
 
   </dependencies>
 
   <build>
     <plugins>
+      <!-- Maven Surefire Plugin -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.1</version>
         <configuration>
           <includes>
             <include>**/*Test*.java</include>
           </includes>
+          <systemPropertyVariables>
+            <!-- Tell Allure where to store results -->
+            <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+          </systemPropertyVariables>
         </configuration>
+      </plugin>
+
+      <!-- Allure Maven Plugin -->
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.11.2</version>
       </plugin>
     </plugins>
   </build>
