@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\aftab\AppData\Local\Temp\testng-eclipse-1753775118\testng-customsuite.xml</span>
+                    <span>C:\Users\aftab\AppData\Local\Temp\testng-eclipse-584770124\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Testcase.LoginTest" class="method navigator-link" hash-for-method="testContactUsForm">testContactUsForm</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="Testcase.LoginTest" class="method navigator-link" hash-for-method="testInvalidLogin">testInvalidLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Testcase.LoginTest" class="method navigator-link" hash-for-method="testSignUpButtonNavigation">testSignUpButtonNavigation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Testcase.LoginTest" class="method navigator-link" hash-for-method="testSubscribeNewsletter">testSubscribeNewsletter</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -131,9 +146,30 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="testContactUsForm">
+                  </a> <!-- testContactUsForm -->
+                  <span class="method-name">testContactUsForm</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="testInvalidLogin">
                   </a> <!-- testInvalidLogin -->
                   <span class="method-name">testInvalidLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSignUpButtonNavigation">
+                  </a> <!-- testSignUpButtonNavigation -->
+                  <span class="method-name">testSignUpButtonNavigation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubscribeNewsletter">
+                  </a> <!-- testSubscribeNewsletter -->
+                  <span class="method-name">testSubscribeNewsletter</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -148,7 +184,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\aftab\AppData\Local\Temp\testng-eclipse-1753775118\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\aftab\AppData\Local\Temp\testng-eclipse-584770124\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -197,20 +233,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testValidLogin')
+data.setCell(0, 1, 'testContactUsForm')
 data.setCell(0, 2, 'Testcase.LoginTest')
-data.setCell(0, 3, 1872);
+data.setCell(0, 3, 3000);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testInvalidLogin')
+data.setCell(1, 1, 'testSignUpButtonNavigation')
 data.setCell(1, 2, 'Testcase.LoginTest')
-data.setCell(1, 3, 1082);
+data.setCell(1, 3, 2480);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testSubscribeNewsletter')
+data.setCell(2, 2, 'Testcase.LoginTest')
+data.setCell(2, 3, 1672);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testValidLogin')
+data.setCell(3, 2, 'Testcase.LoginTest')
+data.setCell(3, 3, 1667);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testInvalidLogin')
+data.setCell(4, 2, 'Testcase.LoginTest')
+data.setCell(4, 3, 1113);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -242,24 +290,60 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testInvalidLogin</span>
-                <span class="method-start">8114 ms</span>
+                <span class="method-name">testSignUpButtonNavigation</span>
+                <span class="method-start">6804 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">9221 ms</span>
+                <span class="method-start">9300 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">9839 ms</span>
+                <span class="method-start">9753 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testValidLogin</span>
-                <span class="method-start">15133 ms</span>
+                <span class="method-name">testInvalidLogin</span>
+                <span class="method-start">15773 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">17005 ms</span>
+                <span class="method-start">16891 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">17284 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testValidLogin</span>
+                <span class="method-start">23449 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">25124 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">25645 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testContactUsForm</span>
+                <span class="method-start">29697 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">32697 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">33118 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubscribeNewsletter</span>
+                <span class="method-start">38658 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">40340 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
