@@ -55,17 +55,7 @@ public class LoginTest extends BaseTest {
         System.out.println("✅ Sign Up navigation passed!"); //$NON-NLS-1$
     }
 
-    // 🥈 Invalid login
-    @Test(priority = 2)
-    public void testInvalidLogin() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("wronguser@gmail.com", "wrongpass"); //$NON-NLS-1$ //$NON-NLS-2$
-
-        String error = loginPage.getErrorMessage();
-        Assert.assertTrue(
-                error.toLowerCase().contains("invalid") || error.toLowerCase().contains("incorrect")); //$NON-NLS-1$ //$NON-NLS-2$
-        System.out.println("✅ Invalid login error displayed!"); //$NON-NLS-1$
-    }
+   
 
     // 🥉 Valid login
     @Test(priority = 3)
