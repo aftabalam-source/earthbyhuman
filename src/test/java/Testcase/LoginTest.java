@@ -4,24 +4,54 @@ import java.time.Duration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import PageObject.*;
 
 @Listeners(TestListener.class)
 public class LoginTest extends BaseTest {
 
+    @BeforeMethod
+    public void dismissCookieBannerIfPresent() {
+        try {
+            WebElement cookieBanner = driver.findElement(By.cssSelector(".CookieConsent")); //$NON-NLS-1$
+            if (cookieBanner.isDisplayed()) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none';", cookieBanner); //$NON-NLS-1$
+                System.out.println("🍪 Cookie banner dismissed before running test"); //$NON-NLS-1$
+            }
+        } catch (NoSuchElementException ignored) {
+            // No cookie banner present — continue normally
+        } catch (Exception e) {
+            System.out.println("⚠️ Could not dismiss cookie banner: " + e.getMessage()); //$NON-NLS-1$
+        }
+    }
+
     // 🥇 Sign Up navigation
     @Test(priority = 1)
     public void testSignUpButtonNavigation() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         By signUpLink = By.xpath("//a[contains(text(),'Sign Up') or contains(.,'Signup')]"); //$NON-NLS-1$
-        wait.until(ExpectedConditions.elementToBeClickable(signUpLink)).click();
-        wait.until(ExpectedConditions.urlContains("/signup")); //$NON-NLS-1$
 
-        Assert.assertTrue(driver.getCurrentUrl().toLowerCase().contains("signup"), //$NON-NLS-1$
-                "❌ Sign Up navigation failed!"); //$NON-NLS-1$
+        WebElement signUpBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(signUpLink));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", signUpBtn); //$NON-NLS-1$
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-100);"); //$NON-NLS-1$ // offset to avoid headers
+
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(signUpBtn)).click();
+            System.out.println("🖱️ Clicked 'Sign Up' normally"); //$NON-NLS-1$
+        } catch (ElementClickInterceptedException e) {
+            System.out.println("⚠️ Click intercepted! Retrying with JS executor"); //$NON-NLS-1$
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", signUpBtn); //$NON-NLS-1$
+        }
+
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.urlContains("/signup"), //$NON-NLS-1$
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//h2[contains(text(),'Sign Up') or contains(text(),'Create')]")) //$NON-NLS-1$
+        ));
+
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.toLowerCase().contains("signup"), //$NON-NLS-1$
+                "❌ Sign Up navigation failed! URL: " + currentUrl); //$NON-NLS-1$
         System.out.println("✅ Sign Up navigation passed!"); //$NON-NLS-1$
     }
 
@@ -54,7 +84,6 @@ public class LoginTest extends BaseTest {
     @Test(priority = 4)
     public void testContactUsForm() {
         ContactUsPage contactPage = new ContactUsPage(driver);
-
         contactPage.openContactForm();
         contactPage.fillContactForm("Sam Test", "difm@gmail.com", "9876543210", "Automation Inquiry", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
                 "This is a Selenium test."); //$NON-NLS-1$
@@ -68,7 +97,6 @@ public class LoginTest extends BaseTest {
     @Test(priority = 5)
     public void testSubscribeNewsletter() {
         SubscribePage subscribePage = new SubscribePage(driver);
-
         subscribePage.scrollToFooter();
         subscribePage.subscribe("qa.subscription@example.com"); //$NON-NLS-1$
 

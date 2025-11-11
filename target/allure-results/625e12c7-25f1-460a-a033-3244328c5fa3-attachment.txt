@@ -1,0 +1,9 @@
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="submit" class="relative z-20 text-white py-4 font-bold px-10 text-sm rounded-full transition-colors duration-300 flex items-center justify-center">...</button> is not clickable at point (1381, 870). Other element would receive the click: <div class="CookieConsent" style="align-items: baseline; background: rgb(0, 0, 0); color: white; display: flex; flex-wrap: wrap; justify-content: space-between; left: 0px; position: fixed; width: 100%; z-index: 999; bottom: 0px;">...</div>
+  (Session info: chrome=142.0.7444.134)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [caed81b4358af5dd79afe2ccd80501bd, clickElement {id=f.55766CBFDA3F2B2509FF010D924C1DA9.d.0A41830B0065452D28535678C47FD568.e.19}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.134, chrome: {chromedriverVersion: 142.0.7444.61 (9884f628acbc..., userDataDir: C:\Users\aftab\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65307}, goog:processID: 32096, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65307/devtoo..., se:cdpVersion: 142.0.7444.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (caed81b4358af5dd79afe2ccd80501bd)] -> xpath: //button[contains(.,'Subscribe') or contains(text(),'Subscribe')]]
+Session ID: caed81b4358af5dd79afe2ccd80501bd

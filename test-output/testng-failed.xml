@@ -6,10 +6,8 @@
       <class name="Testcase.LoginTest">
         <methods>
           <include name="setUp"/>
-          <include name="testValidLogin"/>
           <include name="tearDown"/>
-          <include name="testSignUpButtonNavigation"/>
-          <include name="testInvalidLogin"/>
+          <include name="testSubscribeNewsletter"/>
         </methods>
       </class> <!-- Testcase.LoginTest -->
     </classes>
